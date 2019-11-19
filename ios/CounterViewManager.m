@@ -9,4 +9,5 @@
 #import <Foundation/Foundation.h>
 #import "React/RCTViewManager.h"
 @interface RCT_EXTERN_MODULE(CounterViewManager, RCTViewManager)
+// For bridging with Objective-C and Swift
 @end
