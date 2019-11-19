@@ -47,6 +47,10 @@ class CounterView: UIView {
     }
   }
   
+  @objc func update(value: NSNumber) {
+    count = value
+  }
+  
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }

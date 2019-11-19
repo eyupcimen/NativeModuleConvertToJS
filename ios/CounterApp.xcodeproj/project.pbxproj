@@ -495,8 +495,8 @@
 			isa = PBXGroup;
 			children = (
 				CE69BE64238409AE00FB0F6B /* CounterViewManager.swift */,
-				CE69BE9323840A0700FB0F6B /* CounterViewManager.m */,
 				CE69BE95238413DD00FB0F6B /* CounterView.swift */,
+				CE69BE9323840A0700FB0F6B /* CounterViewManager.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,

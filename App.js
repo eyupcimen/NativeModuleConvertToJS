@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, requireNativeComponent } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, requireNativeComponent, UIManager } from 'react-native';
 
-const CounterView = requireNativeComponent("CounterView")
+import CounterView from './CounterView'
 
 export default class App extends Component {
 
@@ -14,9 +14,10 @@ export default class App extends Component {
   };
 
   update = e => {
-    this.setState({
-      count: e.nativeEvent.count
-    })
+    this.setState({ count: e.count })
+  }
+  updateNative = () => {
+    this.counterRef.update(this.state.count);
   }
 
   render() {
@@ -25,6 +26,7 @@ export default class App extends Component {
         <TouchableOpacity
           style={[styles.wrapper, styles.border]}
           onPress={this.increment}
+          onLongPress={this.updateNative}
         >
           <Text style={styles.button}>{this.state.count}</Text>
         </TouchableOpacity>
@@ -32,6 +34,7 @@ export default class App extends Component {
           style={styles.wrapper}
           count={2}
           onUpdate={this.update}
+          ref={e => this.counterRef = e}
         />
       </View>
     );
