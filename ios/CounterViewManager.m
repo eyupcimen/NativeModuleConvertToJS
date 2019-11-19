@@ -10,4 +10,6 @@
 #import "React/RCTViewManager.h"
 @interface RCT_EXTERN_MODULE(CounterViewManager, RCTViewManager)
 // For bridging with Objective-C and Swift
+RCT_EXPORT_VIEW_PROPERTY(count, NSNumber)
+RCT_EXPORT_VIEW_PROPERTY(onUpdate, RCTDirectEventBlock)
 @end

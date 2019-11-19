@@ -9,7 +9,8 @@
 import UIKit
 class CounterView: UIView {
   
-  @objc var count = 0 {
+  @objc var onUpdate: RCTDirectEventBlock?
+  @objc var count: NSNumber = 0 {
     didSet {
       button.setTitle(String(describing: count), for: .normal)
     }
@@ -24,17 +25,26 @@ class CounterView: UIView {
     let button = UIButton.init(type: UIButton.ButtonType.system)
     button.titleLabel?.font = UIFont.systemFont(ofSize: 50)
     button.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    button.addTarget(
-      self,
-      action: #selector(increment),
-      for: .touchUpInside
+    button.addTarget( self, action: #selector(increment), for: .touchUpInside )
+    let longPress = UILongPressGestureRecognizer(
+      target: self,
+      action: #selector(sendUpdate(_:))
     )
+    button.addGestureRecognizer(longPress)
     return button
   }()
   
   @objc
   func increment() {
-    count += 1
+    count = count.intValue + 1 as NSNumber
+  }
+ 
+  @objc func sendUpdate(_ gesture: UILongPressGestureRecognizer) {
+    if gesture.state == .began {
+      if onUpdate != nil {
+        onUpdate!(["count": count])
+      }
+    }
   }
   
   required init?(coder aDecoder: NSCoder) {

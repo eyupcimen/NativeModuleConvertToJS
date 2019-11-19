@@ -22,7 +22,10 @@ export default class App extends Component {
         >
           <Text style={styles.button}>{this.state.count}</Text>
         </TouchableOpacity>
-        <CounterView style={styles.wrapper} />
+        <CounterView
+          style={styles.wrapper}
+          count={2}
+        />
       </View>
     );
   }
