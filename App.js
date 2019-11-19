@@ -1,14 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, requireNativeComponent } from 'react-native';
 
+const CounterView = requireNativeComponent("CounterView")
 
 export default class App extends Component {
 
@@ -29,6 +22,7 @@ export default class App extends Component {
         >
           <Text style={styles.button}>{this.state.count}</Text>
         </TouchableOpacity>
+        <CounterView style={styles.wrapper} />
       </View>
     );
   }
