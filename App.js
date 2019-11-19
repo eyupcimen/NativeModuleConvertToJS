@@ -13,6 +13,12 @@ export default class App extends Component {
     this.setState({ count: this.state.count + 1 })
   };
 
+  update = e => {
+    this.setState({
+      count: e.nativeEvent.count
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -25,6 +31,7 @@ export default class App extends Component {
         <CounterView
           style={styles.wrapper}
           count={2}
+          onUpdate={this.update}
         />
       </View>
     );
