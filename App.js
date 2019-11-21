@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, requireNativeComponent, UIManager } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-import CounterView from './CounterView'
+import CounterView from './CounterView';
 
 export default class App extends Component {
 
