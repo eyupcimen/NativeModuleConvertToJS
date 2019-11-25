@@ -36,10 +36,13 @@ class CounterView: UIView {
   
   @objc
   func increment() {
+    // Working for each button clicked in native side
     count = count.intValue + 1 as NSNumber
   }
  
   @objc func sendUpdate(_ gesture: UILongPressGestureRecognizer) {
+    // when working button long pressed in native side
+    // Native side -> long pressed -> update react side
     if gesture.state == .began {
       if onUpdate != nil {
         onUpdate!(["count": count])
@@ -48,6 +51,8 @@ class CounterView: UIView {
   }
   
   @objc func update(value: NSNumber) {
+    // when working button long pressed in react side
+    // React side -> long pressed -> update native side
     count = value
   }
   
