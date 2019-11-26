@@ -13,9 +13,12 @@ export default class App extends Component {
     this.setState({ count: this.state.count + 1 })
   };
 
+  // Native => Update => React
   update = e => {
     this.setState({ count: e.count })
   }
+
+  // React => Update => Native
   updateNative = () => {
     this.counterRef.update(this.state.count);
   }
