@@ -15,11 +15,13 @@ export default class App extends Component {
 
   // Native => Update => React
   update = e => {
+    console.warn('Native => Update => React App icerisi');
     this.setState({ count: e.count })
   }
 
   // React => Update => Native
   updateNative = () => {
+    console.warn('React => Update => Native');
     this.counterRef.update(this.state.count);
   }
 

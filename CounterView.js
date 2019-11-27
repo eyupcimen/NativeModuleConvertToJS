@@ -15,6 +15,7 @@ export default class CounterView extends Component {
   };
   _onUpdate = event => {
     if (this.props.onUpdate) {
+      console.warn('Native => Update => React CounterView');
       this.props.onUpdate(event.nativeEvent);
     }
   };
